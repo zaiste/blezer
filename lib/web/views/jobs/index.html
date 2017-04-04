@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% include "_partials/nav.html" %}
+<div class="container-fluid">
+  <div class="row">
+    {% include "_partials/sidebar.html" %}
+
+    <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+      <h1>{{ status }} Jobs</h1>
+
+      <form action='/jobs?status={{ status }}' method='POST'>
+        <button type='submit' class="btn btn-danger">Remove all</button>
+      </form>
+
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>JID</th>
+              <th>Worker</th>
+              <th>Queue</th>
+              <th>Progress</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for job in jobs %}
+            <tr>
+              <th scope="row">{{ job.jid }}</th>
+              <td>{{ job.class }}</td>
+              <td>{{ job.queue }}</td>
+              <td>
+                <div class='progress progress-striped'>
+                  <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{ job.progress }}%;">
+                  </div>
+                </div>
+              </td>
+              <td>
+                <a href="/jobs/{{ job.jid }}" class="btn btn-outline-primary btn-sm">Show</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+{% endblock %}

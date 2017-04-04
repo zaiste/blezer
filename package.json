@@ -1,0 +1,55 @@
+{
+  "name": "blezer",
+  "version": "0.0.1",
+  "main": "index.js",
+  "preferGlobal": true,
+  "engines": {
+    "node" : ">= 7.6.0"
+  },
+  "keywords": [
+    "blezer",
+    "queue",
+    "job",
+    "worker",
+    "task",
+    "async",
+    "es6",
+    "es2015"
+  ],
+  "author": {
+    "name": "Zaiste",
+    "url": "https://github.com/zaiste"
+  },
+  "license": "Apache 2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zaiste/blezer"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "chalk": "^1.1.3",
+    "figlet": "^1.2.0",
+    "fs-extra": "^2.1.2",
+    "koa": "2",
+    "koa-body": "2",
+    "koa-nunjucks-next": "^1.1.2",
+    "koa-router": "next",
+    "koa-static": "^3.0.0",
+    "pkginfo": "^0.4.0",
+    "redis": "^2.7.1",
+    "require-all": "^2.2.0",
+    "yargs": "^7.0.2"
+  },
+  "bin": {
+    "blezer": "cli.js"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "test": "mocha tests",
+    "web": "nodemon -e html,js -w . -w lib/web/views lib/web/app.js"
+  }
+}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% include "_partials/nav.html" %}
+<div class="container-fluid">
+  <div class="row">
+    {% include "_partials/sidebar.html" %}
+
+    <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+      <h1>Job: {{ jid }}</h1>
+      <div class='progress progress-striped'>
+        <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{ progress }}%;">
+        </div>
+      </div>
+
+      <form action='/jobs/{{ jid }}/delete' method='POST'>
+        <button type='submit' class="btn btn-danger">Stop</button>
+      </form>
+
+      <ul class="terminal">
+        {% for log in logs %}
+        <li>{{ log }}</li>
+        {% endfor %}
+      </ul>
+    </main>
+  </div>
+</div>
+{% endblock %}
