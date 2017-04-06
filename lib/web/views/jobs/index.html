@@ -13,7 +13,9 @@
         <button type='submit' class="btn btn-danger">Remove all</button>
       </form>
 
-      <div class="table-responsive">
+
+      <div id="job-list" class="table-responsive">
+        <input class="search" />
         <table class="table table-hover">
           <thead>
             <tr>
@@ -24,10 +26,10 @@
               <th></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="list">
             {% for job in jobs %}
             <tr>
-              <th scope="row">{{ job.jid }}</th>
+              <th scope="row" class="jid">{{ job.jid }}</th>
               <td>{{ job.class }}</td>
               <td>{{ job.queue }}</td>
               <td>

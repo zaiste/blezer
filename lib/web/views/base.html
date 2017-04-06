@@ -74,9 +74,22 @@ h1 {
   background-color: #454545;
   width: 100%;
 }
+.search {
+  width: 100%;
+  padding: .5rem;
+  margin: 1rem 0;
+}
     </style>
   </head>
   <body>
     {% block content %}{% endblock %}
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var options = { valueNames: [ 'jid' ] };
+      var jobList = new List('job-list', options);
+    });
+    </script>
   </body>
 </html>
