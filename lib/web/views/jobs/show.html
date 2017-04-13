@@ -4,10 +4,11 @@
 {% include "_partials/nav.html" %}
 <div class="container-fluid">
   <div class="row">
+    {% set nav = { active: 'jobs' } %}
     {% include "_partials/sidebar.html" %}
 
     <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-      <h1>Job: {{ jid }}</h1>
+      <h2>Job: {{ jid }}</h2>
 
       <form action='/jobs/{{ jid }}/delete' method='POST' class='mt-3 mb-3'>
         <button type='submit' class="btn btn-danger float-right mb-3">Stop</button>

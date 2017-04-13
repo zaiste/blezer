@@ -1,32 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "base.html" %}
+{% block content %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-  </head>
-  <body>
-    <h1>Queues</h1>
+{% include "_partials/nav.html" %}
+<div class="container-fluid">
+  <div class="row">
+    {% set nav = { active: 'queues' } %}
+    {% include "_partials/sidebar.html" %}
+    <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+      <h1>Queues</h1>
 
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>JID</th>
-          <th>Queue</th>
-          <th>Load</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for queue in queues %}
-        <th scope="row">1</th>
-        <td>{{ queue.name }}</td>
-        <td>{{ queue.progress }}</td>
-        {% endfor %}
-      </tbody>
-    </table>
-  </body>
-</html>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>JID</th>
+            <th>Queue</th>
+            <th>Load</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for queue in queues %}
+          <th scope="row">1</th>
+          <td>{{ queue.name }}</td>
+          <td>{{ queue.progress }}</td>
+          {% endfor %}
+        </tbody>
+      </table>
+    </main>
+  </div>
+</div>
+{% endblock %}
+
+{% extends "base.html" %}
+{% block content %}

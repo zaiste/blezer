@@ -1,4 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Dahsboard</h1>
+
+{% include "_partials/nav.html" %}
+
+<div class="container-fluid">
+  <div class="row">
+    {% include "_partials/sidebar.html" %}
+    <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+      <table class="table table-sm text-center">
+        <thead>
+          <tr>
+            <th class="text-center text-uppercase border-0">Done</th>
+            <th class="text-center text-uppercase border-0">Failed</th>
+            <th class="text-center text-uppercase border-0">Busy</th>
+            <th class="text-center text-uppercase border-0">Queued</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border-0">{{ stats[0] }}</td>
+            <td class="border-0">{{ stats[1] }}</td>
+            <td class="border-0">{{ stats[2] }}</td>
+            <td class="border-0">{{ stats[3] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+</div>
 {% endblock %}

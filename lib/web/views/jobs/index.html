@@ -4,15 +4,13 @@
 {% include "_partials/nav.html" %}
 <div class="container-fluid">
   <div class="row">
+    {% set nav = { active: status } %}
     {% include "_partials/sidebar.html" %}
 
     <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-      <h1>{{ status }} Jobs</h1>
-
       <form action='/jobs?status={{ status }}' method='POST'>
         <button type='submit' class="btn btn-danger">Remove all</button>
       </form>
-
 
       <div id="job-list" class="table-responsive">
         <input class="search" />
