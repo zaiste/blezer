@@ -6,7 +6,7 @@ Simple background job/task processing queue for Node.js (>= 7.6) using `cluster`
 
     yarn global add blezer
 
-Each job triggers an execution of a *Task* i.e. a recipe what to do for that job. It is defined as a `class` with `perform` method. `Task` corresponds to `Worker` from similar projects such as [resque][1] or [sidekiq][2]. It is named this way to avoid the clash with `cluster` workers. 
+Each job triggers an execution of a *Task* i.e. a recipe what to do for that job. It is defined as a `class` with `perform` method. `Task` corresponds to `Worker` from similar projects such as [resque][1] or [sidekiq][2]. It is named this way to avoid the clash with `cluster` workers.
 
 ```
 const { Task } = require('blezer');  
@@ -48,3 +48,7 @@ Enqueue a job through the API
 ## Roadmap
 
 - [ ] visualisation with Clui https://github.com/nathanpeck/clui
+
+## Contributing
+
+- run the code through `prettier`
