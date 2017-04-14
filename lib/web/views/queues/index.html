@@ -24,9 +24,12 @@
             <td>{{ name }}</td>
             <td>{{ size }}</td>
             <td>
-              <form action='/queues/{{ name }}' method='POST'>
-                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-              </form>
+              <div class="btn-group" role="group">
+                <a href='/queues/{{name}}' class="btn btn-sm btn-primary"> Show </a>
+                <form action='/queues/{{ name }}' method='POST'>
+                  <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </form>
+              </div>
             </td>
           </tr>
           {% endfor %}
