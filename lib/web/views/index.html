@@ -6,25 +6,70 @@
 <div class="container-fluid">
   <div class="row">
     {% include "_partials/sidebar.html" %}
+
     <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-      <table class="table table-sm text-center">
-        <thead>
-          <tr>
-            <th class="text-center text-uppercase border-0">Done</th>
-            <th class="text-center text-uppercase border-0">Failed</th>
-            <th class="text-center text-uppercase border-0">Busy</th>
-            <th class="text-center text-uppercase border-0">Queued</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="border-0">{{ stats[0] }}</td>
-            <td class="border-0">{{ stats[1] }}</td>
-            <td class="border-0">{{ stats[2] }}</td>
-            <td class="border-0">{{ stats[3] }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="card text-center">
+            <div class="card-header">
+              Done
+            </div>
+            <div class="card-block">
+              <h3 class="card-title">{{ stats[0] }}</h3>
+              <p class="card-text">jobs</p>
+              <a href="#" class="btn btn-primary btn-sm">See</a>
+            </div>
+            <div class="card-footer text-muted">
+              2 days ago
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card text-center">
+            <div class="card-header">
+              Failed
+            </div>
+            <div class="card-block">
+              <h3 class="card-title">{{ stats[1] }}</h3>
+              <p class="card-text">jobs</p>
+              <a href="#" class="btn btn-primary btn-sm">See</a>
+            </div>
+            <div class="card-footer text-muted">
+              2 days ago
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card text-center">
+            <div class="card-header">
+               Busy
+            </div>
+            <div class="card-block">
+              <h3 class="card-title">{{ stats[2] }}</h3>
+              <p class="card-text">jobs</p>
+              <a href="#" class="btn btn-primary btn-sm">See</a>
+            </div>
+            <div class="card-footer text-muted">
+              2 days ago
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card text-center">
+            <div class="card-header">
+              Queued
+            </div>
+            <div class="card-block">
+              <h3 class="card-title">{{ stats[3] }}</h3>
+              <p class="card-text">jobs</p>
+              <a href="#" class="btn btn-primary btn-sm">See</a>
+            </div>
+            <div class="card-footer text-muted">
+              2 days ago
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   </div>
 </div>
