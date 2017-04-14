@@ -1,32 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "base.html" %}
+{% block content %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-  </head>
-  <body>
-    <h1>Queues</h1>
+{% include "_partials/nav.html" %}
+<div class="container-fluid">
+  <div class="row">
+    {% set nav = { active: 'queues'} %}
+    {% include "_partials/sidebar.html" %}
 
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>JID</th>
-          <th>Queue</th>
-          <th>Load</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for queue in queues %}
-        <th scope="row">1</th>
-        <td>{{ queue.name }}</td>
-        <td>{{ queue.progress }}</td>
-        {% endfor %}
-      </tbody>
-    </table>
-  </body>
-</html>
+    <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+      <h2> Queue: {{ id }} </h2>
+      <div id="job-list" class="table-responsive">
+        <input class="search" />
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>JID</th>
+              <th>Worker</th>
+              <th>Queue</th>
+              <th>Progress</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody class="list">
+            {% for job in jobs %}
+            <tr>
+              <th scope="row" class="jid">{{ job.jid }}</th>
+              <td>{{ job.task }}</td>
+              <td>{{ job.queue }}</td>
+              <td>
+                <div class='progress progress-striped'>
+                  <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{ job.progress }}%;">
+                  </div>
+                </div>
+              </td>
+              <td>
+                <a href="/jobs/{{ job.jid }}" class="btn btn-outline-primary btn-sm">Show</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+{% endblock %}
