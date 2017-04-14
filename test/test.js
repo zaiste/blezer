@@ -4,13 +4,12 @@ chai.should();
 
 const Job = require('../lib/job');
 
-beforeEach(() => {
-});
+beforeEach(() => {});
 
 describe('#find()', () => {
   it('respond with ...', async () => {
-    const job = await new Job('BooWorker', '[1, "arg1", true]')
+    const job = await new Job('BooWorker', '[1, "arg1", true]');
 
-    job.should.not.be.equal(2)
+    job.should.not.be.equal(2);
   });
 });

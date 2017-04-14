@@ -4,7 +4,7 @@
   "main": "index.js",
   "preferGlobal": true,
   "engines": {
-    "node" : ">= 7.6.0"
+    "node": ">= 7.6.0"
   },
   "keywords": [
     "blezer",
@@ -45,11 +45,13 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "eslint": "^3.19.0",
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0"
   },
   "scripts": {
-    "test": "mocha tests",
+    "check": "eslint .",
+    "test": "mocha --report list",
     "web": "nodemon -e html,js -w . -w lib/web/views lib/web/app.js"
   }
 }

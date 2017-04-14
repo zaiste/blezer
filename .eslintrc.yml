@@ -1,0 +1,25 @@
+env:
+  node: true
+  es6: true
+  mocha: true
+extends: 'eslint:recommended'
+rules:
+  no-console: off
+  no-unused-vars:
+    - error
+    - args: none
+      varsIgnorePattern: Promise
+  indent:
+    - error
+    - 2
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - error
+    - single
+  semi:
+    - error
+    - always
+parserOptions:
+  ecmaVersion: 8
