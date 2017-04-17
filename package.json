@@ -8,12 +8,16 @@
   },
   "keywords": [
     "blezer",
+    "nodejs",
     "queue",
     "job",
     "worker",
     "task",
     "async",
+    "async-await",
+    "asyncawait",
     "es6",
+    "es7",
     "es2015"
   ],
   "author": {
