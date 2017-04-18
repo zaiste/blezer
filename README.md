@@ -47,6 +47,14 @@ Enqueue a job through the API
 
     http POST :3000/api/queues/default task=LoopTask args='[1,2,3]'
 
+Enqueue a job via a helper function
+
+```js
+const { enqueue } = require('blezer');
+
+enqueue('LoopTask', '[1, 2, 3]');
+```
+
 ## Roadmap
 
 Blezer keeps track of the upcoming fixes and features on GitHub Projects: [Blezer Roadmap](https://github.com/zaiste/blezer/projects/1)
