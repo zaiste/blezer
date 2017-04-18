@@ -12,12 +12,12 @@
         <div class="col-sm-3">
           <div class="card text-center">
             <div class="card-header">
-              Done
+              Processed
             </div>
             <div class="card-block">
               <h3 class="card-title">{{ stats[0] }}</h3>
               <p class="card-text">jobs</p>
-              <a href="#" class="btn btn-primary btn-sm">See</a>
+              <a href="/jobs?status=processed" class="btn btn-primary btn-sm">See</a>
             </div>
             <div class="card-footer text-muted">
               2 days ago
@@ -32,7 +32,7 @@
             <div class="card-block">
               <h3 class="card-title">{{ stats[1] }}</h3>
               <p class="card-text">jobs</p>
-              <a href="#" class="btn btn-primary btn-sm">See</a>
+              <a href="/jobs?status=failed" class="btn btn-primary btn-sm">See</a>
             </div>
             <div class="card-footer text-muted">
               2 days ago
@@ -42,12 +42,12 @@
         <div class="col-sm-3">
           <div class="card text-center">
             <div class="card-header">
-               Busy
+              Active
             </div>
             <div class="card-block">
               <h3 class="card-title">{{ stats[2] }}</h3>
               <p class="card-text">jobs</p>
-              <a href="#" class="btn btn-primary btn-sm">See</a>
+              <a href="/jobs?status=active" class="btn btn-primary btn-sm">See</a>
             </div>
             <div class="card-footer text-muted">
               2 days ago
@@ -62,7 +62,7 @@
             <div class="card-block">
               <h3 class="card-title">{{ stats[3] }}</h3>
               <p class="card-text">jobs</p>
-              <a href="#" class="btn btn-primary btn-sm">See</a>
+              <a href="/queues" class="btn btn-primary btn-sm">See</a>
             </div>
             <div class="card-footer text-muted">
               2 days ago
