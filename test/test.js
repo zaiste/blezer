@@ -1,15 +1,16 @@
 const chai = require('chai');
-
-chai.should();
+const expect = chai.expect;
 
 const Job = require('../lib/job');
 
 beforeEach(() => {});
 
-describe('#find()', () => {
-  it('respond with ...', async () => {
-    const job = await new Job('BooWorker', '[1, "arg1", true]');
+describe('Job', () => {
+  it('create a job with a specific task', async () => {
+    const job = await new Job('default', 'BooWorker', [1, 'arg1', true]);
 
-    job.should.not.be.equal(2);
+    expect(job.queue).to.be.equal('default');
+    expect(job.task).to.be.equal('BooWorker');
+    expect(job.args).to.be.an('array');
   });
 });

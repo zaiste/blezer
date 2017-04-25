@@ -55,7 +55,7 @@
   },
   "scripts": {
     "check": "eslint .",
-    "test": "mocha --report list",
+    "test": "mocha",
     "web": "nodemon -e html,js -w . -w lib/web/views lib/web/app.js"
   }
 }
