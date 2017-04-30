@@ -33,16 +33,13 @@
     "bluebird": "^3.5.0",
     "chalk": "^1.1.3",
     "figlet": "^1.2.0",
-    "fs-extra": "^2.1.2",
-    "koa": "2",
-    "koa-body": "2",
-    "koa-nunjucks-next": "^1.1.2",
-    "koa-router": "next",
-    "koa-static": "^3.0.0",
+    "fs-extra": "^3.0.0",
+    "huncwot": "^0.4.0",
+    "nunjucks": "^3.0.0",
     "pkginfo": "^0.4.0",
     "redis": "^2.7.1",
     "require-all": "^2.2.0",
-    "yargs": "^7.0.2"
+    "yargs": "^7.1.0"
   },
   "bin": {
     "blezer": "cli.js"
@@ -50,7 +47,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.19.0",
-    "mocha": "^3.2.0",
+    "mocha": "^3.3.0",
     "nodemon": "^1.11.0"
   },
   "scripts": {
