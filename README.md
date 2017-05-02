@@ -3,11 +3,22 @@
 [![npm](https://img.shields.io/npm/v/blezer.svg)](https://www.npmjs.com/package/blezer)
 [![npm](https://img.shields.io/npm/dm/blezer.svg)](https://www.npmjs.com/package/blezer)
 
-Blezer is a simple background job/task processing queue for Node.js (>= 7.6) using `cluster` & separate Node processes.
+Blezer is a simple background job/task processing queue for Node.js (>= 7.6) using `cluster` & separate Node processes, powered by Redis.
+
+## Features 
+
+- [x] each worker runs its tasks in a separate Node.js process
+- [x] RESTful JSON API
+- [x] integrated UI
+- [x] logging per job/task
+- [ ] delay job/task execution
+- [ ] job/task expiry value for being in active state
 
 ## Install
 
     npm install -g blezer
+
+## Getting started 
 
 Each job triggers an execution of a *Task* i.e. a recipe what to do for that job. It is defined as a `class` with `perform` method. `Task` corresponds to `Worker` from similar projects such as [resque][1] or [sidekiq][2]. It is named this way to avoid the clash with `cluster` workers.
 
@@ -53,6 +64,14 @@ Enqueue a job via a helper function
 const { enqueue } = require('blezer');
 
 enqueue('LoopTask', '[1, 2, 3]');
+```
+
+### Logging
+
+You can log on per job/task basis by using `this.log(message)` method, where `message` is a string.
+
+```
+this.log("This is my log message");
 ```
 
 ## Roadmap
