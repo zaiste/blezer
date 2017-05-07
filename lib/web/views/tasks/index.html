@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% include "_partials/nav.html" %}
+<div class="container-fluid">
+  <div class="row">
+    {% set nav = { active: 'tasks' } %}
+    {% include "_partials/sidebar.html" %}
+
+    <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+
+      <div id="job-list" class="table-responsive">
+        <input class="search" />
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody class="list">
+            {% for name,_ in tasks %}
+            <tr>
+              <th scope="row">{{ name }}</th>
+              <th>
+                <a href="/jobs/{{ job.jid }}" class="btn btn-outline-primary btn-sm">Run</a>
+              </th>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+{% endblock %}
