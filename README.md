@@ -44,34 +44,57 @@ class LoopTask extends Task {
 module.exports = LoopTask
 ```
 
+Put your tasks in `tasks/` directory and run
+
+    blezer start
+
 [1]: https://github.com/resque/resque
 [2]: https://github.com/mperham/sidekiq
 
 
 ## Usage
 
-Put your tasks in `tasks/` directory and run
-
-    blezer start
-
-Enqueue a job through the API
-
-    http POST :3000/api/queues/default task=LoopTask args='[1,2,3]'
-
-Enqueue a job via a helper function
+Jobs should be enqueued using `enqueue` helper. 
 
 ```js
-const { enqueue } = require('blezer');
+const { enqueue } = require('blezer/lib/helpers');
 
 enqueue('LoopTask', '[1, 2, 3]');
 ```
 
-### Logging
+By default, the `enqueue` function puts the new job on `default` queue; this can be changed with the `name` parameter from `options`.
 
-You can log on per job/task basis by using `this.log(message)` method, where `message` is a string.
+```js
+enqueue('LoopTask', '[1, 2, 3]', { name: 'high' });
+```
+
+A job can be scheduled to run at a specific time using `scheduledAt` parameter.
+
+```js
+enqueue('LoopTask', '[1, 2, 3]', { name: 'high', scheduledAt: Date.now() + Sugar.Number.days(4) });
+```
+
+It is also possible to enqueue a job through Blezer REST API
+
+    http POST :3000/api/enqueue task=LoopTask args='[1,2,3]'
+
+
+### Queues
+
+*Queue* is a list of *Job* items, stored so as to be retrievable and handled in the order of insertion. You can create a *Queue* by giving it a name. This is a lower level API which usually shouldn't be used directly - it's advised to use `enqueue` helper. 
+
+```js
+const { Queue } = require('blezer');
+const highQueue = new Queue('high');
+```
+
+## Logging
+
+You can log on per job/task basis by using `this.log(message)` method, where `message` is an object or a string.
 
 ```
 this.log("This is my log message");
+this.log({ a: 1, b: 2});
 ```
 
 ## Roadmap
