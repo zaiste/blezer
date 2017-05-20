@@ -9,16 +9,35 @@
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
-// limitations under the License.const Promise = require('bluebird');
+// limitations under the License.
 
+const fs = require('fs-extra');
+const { join } = require('path');
 
-const { render } = require('../util.js');
-const { tasks } = require('../../load.js');
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
-async function index(request) {
-  return render('tasks/index.html', { tasks });
+function generate(name) {
+  return `const { Task } = require('blezer');
+
+class ${name}Task extends Task {
+  async perform(args) {
+
+  }
+}
+
+module.exports = ${name}Task
+  `;
+}
+
+async function create({ name }) {
+  let _ = capitalize(name);
+  await fs.outputFile(join('tasks', `${_}Task.js`), generate(_));
 }
 
 module.exports = {
-  index,
+  handler: create,
+  builder: _ => _
+    .option('name')
 };

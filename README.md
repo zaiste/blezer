@@ -97,6 +97,16 @@ this.log("This is my log message");
 this.log({ a: 1, b: 2});
 ```
 
+## Create tasks from CLI
+
+You can create a task in `tasks` using CLI
+
+```
+blezer create foo
+```
+
+This command will create `FooTask.js` task in `tasks/` directory.
+
 ## Roadmap
 
 Blezer keeps track of the upcoming fixes and features on GitHub Projects: [Blezer Roadmap](https://github.com/zaiste/blezer/projects/1)
