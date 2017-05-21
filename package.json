@@ -35,7 +35,7 @@
     "chokidar": "^1.7.0",
     "figlet": "^1.2.0",
     "fs-extra": "^3.0.1",
-    "huncwot": "^0.7.0",
+    "huncwot": "^0.8.0",
     "nunjucks": "^3.0.0",
     "pkginfo": "^0.4.0",
     "redis": "^2.7.1",
