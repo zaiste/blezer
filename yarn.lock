@@ -858,13 +858,7 @@ debug@2.6.0:
   dependencies:
     ms "0.7.2"
 
-debug@^2.1.1, debug@^2.2.0:
-  version "2.6.6"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.6.tgz#a9fa6fbe9ca43cf1e79f73b75c0189cbb7d6db5a"
-  dependencies:
-    ms "0.7.3"
-
-debug@^2.6.8:
+debug@^2.1.1, debug@^2.2.0, debug@^2.6.8:
   version "2.6.8"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.8.tgz#e731531ca2ede27d188222427da17821d68ff4fc"
   dependencies:
@@ -1534,9 +1528,9 @@ http-signature@~1.1.0:
     jsprim "^1.2.2"
     sshpk "^1.7.0"
 
-huncwot@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/huncwot/-/huncwot-0.8.0.tgz#bd3667c88533ab2adba15f6b3c26f0681ef90570"
+huncwot@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/huncwot/-/huncwot-0.8.1.tgz#51b90f06de4af275996962e004150f8f13da27c5"
   dependencies:
     basic-auth "^1.1.0"
     bluebird "^3.5.0"
@@ -2180,44 +2174,7 @@ marko-path-router@^0.3.0:
     marko "^4.2.8"
     radix-router "^2.0.0"
 
-marko@^4.2.8:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/marko/-/marko-4.3.1.tgz#2ed1c7d35966fc6d3fe7bd99999e4d9840ec6a9d"
-  dependencies:
-    app-module-path "^2.2.0"
-    argly "^1.0.0"
-    browser-refresh-client "^1.0.0"
-    char-props "~0.1.5"
-    complain "^1.0.0"
-    deresolve "^1.1.2"
-    escodegen "^1.8.1"
-    esprima "^3.1.1"
-    estraverse "^4.2.0"
-    events "^1.0.2"
-    events-light "^1.0.0"
-    he "^1.1.0"
-    htmljs-parser "^2.3.2"
-    lasso-caching-fs "^1.0.1"
-    lasso-modules-client "^2.0.3"
-    lasso-package-root "^1.0.1"
-    listener-tracker "^2.0.0"
-    minimatch "^3.0.2"
-    object-assign "^4.1.0"
-    property-handlers "^1.0.0"
-    raptor-async "^1.1.2"
-    raptor-json "^1.0.1"
-    raptor-logging "^1.0.1"
-    raptor-polyfill "^1.0.0"
-    raptor-promises "^1.0.1"
-    raptor-regexp "^1.0.0"
-    raptor-util "^3.2.0"
-    resolve-from "^2.0.0"
-    simple-sha1 "^2.1.0"
-    strip-json-comments "^2.0.1"
-    try-require "^1.2.1"
-    warp10 "^1.0.0"
-
-marko@^4.4.2:
+marko@^4.2.8, marko@^4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/marko/-/marko-4.4.2.tgz#bf19679673ed2ca2432616e3278fb353fe887407"
   dependencies:
@@ -2352,10 +2309,6 @@ ms@0.7.2:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
 
-ms@0.7.3:
-  version "0.7.3"
-  resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.3.tgz#708155a5e44e33f5fd0fc53e81d0d40a91be1fff"
-
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -2454,9 +2407,9 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
-nunjucks@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/nunjucks/-/nunjucks-3.0.0.tgz#0a2a8fd2942a3ba04f5ba6684e4f7f7ceaca8305"
+nunjucks@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/nunjucks/-/nunjucks-3.0.1.tgz#4de74a3e550baf6fa3370323f3d1c7c2a86bdc4d"
   dependencies:
     a-sync-waterfall "^1.0.0"
     asap "^2.0.3"
