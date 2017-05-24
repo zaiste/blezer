@@ -18,7 +18,7 @@
           <thead>
             <tr>
               <th>JID</th>
-              <th>Worker</th>
+              <th>Task</th>
               <th>Queue</th>
               <th>Progress</th>
               <th></th>
@@ -28,8 +28,8 @@
             {% for job in jobs %}
             <tr>
               <th scope="row" class="jid">{{ job.jid }}</th>
-              <td>{{ job.task }}</td>
-              <td>{{ job.queue }}</td>
+              <td class="task">{{ job.task }}</td>
+              <td class="queue">{{ job.queue }}</td>
               <td>
                 <div class='progress progress-striped'>
                   <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{ job.progress }}%;">
