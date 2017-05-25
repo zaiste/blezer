@@ -3,9 +3,13 @@ const expect = chai.expect;
 
 const Job = require('../lib/job');
 const Queue = require('../lib/queue');
-const { enqueue } = require('../lib/helpers');
+const { enqueue } = require('../');
 
 beforeEach(() => {});
+
+async function timeout(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 describe('Job', () => {
   it('create a job with a specific task', async () => {
@@ -32,4 +36,15 @@ describe('Job', () => {
     expect(job.task).to.be.equal('BooWorker');
     expect(job.args).to.be.an('array');
   });
+
+  it('enqueue a new job ', async () => {
+    const job = await new Job('default', 'BooWorker', [1, 'arg1', true]);
+    await timeout(1);
+    job.emit('enqueued');
+
+    expect(job.createdAt).to.exist;
+    expect(job.enqueuedAt).to.exist;
+    expect(job.enqueuedAt).not.to.be.equal(job.createdAt);
+  });
+
 });
