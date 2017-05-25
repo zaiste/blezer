@@ -57,7 +57,7 @@ Put your tasks in `tasks/` directory and run
 Jobs should be enqueued using `enqueue` helper. 
 
 ```js
-const { enqueue } = require('blezer/lib/helpers');
+const { enqueue } = require('blezer');
 
 enqueue('LoopTask', '[1, 2, 3]');
 ```
