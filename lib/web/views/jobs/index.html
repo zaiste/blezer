@@ -14,13 +14,14 @@
 
       <div id="job-list" class="table-responsive">
         <input class="search" />
-        <table class="table table-hover">
+        <table class="table table-hover table-sm">
           <thead>
             <tr>
               <th>JID</th>
               <th>Task</th>
               <th>Queue</th>
-              <th>Progress</th>
+              <th>StartedAt</th>
+              <th>%</th>
               <th></th>
             </tr>
           </thead>
@@ -30,12 +31,8 @@
               <th scope="row" class="jid">{{ job.jid }}</th>
               <td class="task">{{ job.task }}</td>
               <td class="queue">{{ job.queue }}</td>
-              <td>
-                <div class='progress progress-striped'>
-                  <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{ job.progress }}%;">
-                  </div>
-                </div>
-              </td>
+              <td class="queue">{{ job.startedAt }}</td>
+              <td>{{ job.progress }}</td>
               <td>
                 <a href="/jobs/{{ job.jid }}" class="btn btn-outline-primary btn-sm">Show</a>
               </td>
