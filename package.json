@@ -40,6 +40,7 @@
     "pkginfo": "^0.4.0",
     "redis": "^2.7.1",
     "require-all": "^2.2.0",
+    "sugar-date": "^2.0.4",
     "yargs": "^8.0.1"
   },
   "bin": {

@@ -18,7 +18,9 @@ Blezer is a simple background job/task processing queue for Node.js (>= 7.6) usi
 
     npm install -g blezer
 
-## Getting started 
+## Usage 
+
+### Step 1: Create a task
 
 Each job triggers an execution of a *Task* i.e. a recipe what to do for that job. It is defined as a `class` with `perform` method. `Task` corresponds to `Worker` from similar projects such as [resque][1] or [sidekiq][2]. It is named this way to avoid the clash with `cluster` workers.
 
@@ -44,17 +46,17 @@ class LoopTask extends Task {
 module.exports = LoopTask
 ```
 
+### Step 2: Run the server
+
 Put your tasks in `tasks/` directory and run
 
     blezer start
 
-[1]: https://github.com/resque/resque
-[2]: https://github.com/mperham/sidekiq
+By default, it checks available number of cores and it instantiates the number of Node processes accordingly. You can specify number of process by hand using `-c` option. Type `blezer start --help` to see all available options.
 
+### Step 3: Enqueue a job
 
-## Usage
-
-Jobs should be enqueued using `enqueue` helper. 
+You can enqueue a job to perform given task from a JavaScript application
 
 ```js
 const { enqueue } = require('blezer');
@@ -78,6 +80,22 @@ It is also possible to enqueue a job through Blezer REST API
 
     http POST :3000/api/enqueue task=LoopTask args='[1,2,3]'
 
+### (optional) Step 4: Check the progress via UI
+
+Go to `localhost:3000` to check the job proegress through Blezer UI.
+
+[1]: https://github.com/resque/resque
+[2]: https://github.com/mperham/sidekiq
+
+## Blezer UI
+
+Blezer comes with a built-in web UI that allows to quickly see the status of all jobs. Here's a preview of what it looks like:
+
+![Blezer UI](https://github.com/zaiste/blezer/raw/master/blezer-ui.jpg)
+
+---
+
+## Concepts
 
 ### Queues
 
@@ -88,7 +106,7 @@ const { Queue } = require('blezer');
 const highQueue = new Queue('high');
 ```
 
-## Logging
+### Logging
 
 You can log on per job/task basis by using `this.log(message)` method, where `message` is an object or a string.
 
@@ -97,7 +115,7 @@ this.log("This is my log message");
 this.log({ a: 1, b: 2});
 ```
 
-## Create tasks from CLI
+### Create tasks from CLI
 
 You can create a task in `tasks` using CLI
 
