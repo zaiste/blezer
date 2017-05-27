@@ -1587,9 +1587,9 @@ http-signature@~1.1.0:
     jsprim "^1.2.2"
     sshpk "^1.7.0"
 
-huncwot@^0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/huncwot/-/huncwot-0.8.1.tgz#51b90f06de4af275996962e004150f8f13da27c5"
+huncwot@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/huncwot/-/huncwot-0.9.0.tgz#b9111c6b3338f88470b01ba6dc5a62d3660a7695"
   dependencies:
     basic-auth "^1.1.0"
     bluebird "^3.5.0"
@@ -1598,7 +1598,7 @@ huncwot@^0.8.1:
     fs-extra "^3.0.1"
     lasso "^2.11.11"
     lasso-marko "^2.3.0"
-    marko "^4.4.2"
+    marko "^4.4.5"
     marko-path-router "^0.3.0"
     mime-types "^2.1.15"
     path-to-regexp "^1.7.0"
@@ -2243,9 +2243,46 @@ marko-path-router@^0.3.0:
     marko "^4.2.8"
     radix-router "^2.0.0"
 
-marko@^4.2.8, marko@^4.4.2:
+marko@^4.2.8:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/marko/-/marko-4.4.2.tgz#bf19679673ed2ca2432616e3278fb353fe887407"
+  dependencies:
+    app-module-path "^2.2.0"
+    argly "^1.0.0"
+    browser-refresh-client "^1.0.0"
+    char-props "~0.1.5"
+    complain "^1.0.0"
+    deresolve "^1.1.2"
+    escodegen "^1.8.1"
+    esprima "^3.1.1"
+    estraverse "^4.2.0"
+    events "^1.0.2"
+    events-light "^1.0.0"
+    he "^1.1.0"
+    htmljs-parser "^2.3.2"
+    lasso-caching-fs "^1.0.1"
+    lasso-modules-client "^2.0.3"
+    lasso-package-root "^1.0.1"
+    listener-tracker "^2.0.0"
+    minimatch "^3.0.2"
+    object-assign "^4.1.0"
+    property-handlers "^1.0.0"
+    raptor-async "^1.1.2"
+    raptor-json "^1.0.1"
+    raptor-logging "^1.0.1"
+    raptor-polyfill "^1.0.0"
+    raptor-promises "^1.0.1"
+    raptor-regexp "^1.0.0"
+    raptor-util "^3.2.0"
+    resolve-from "^2.0.0"
+    simple-sha1 "^2.1.0"
+    strip-json-comments "^2.0.1"
+    try-require "^1.2.1"
+    warp10 "^1.0.0"
+
+marko@^4.4.5:
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/marko/-/marko-4.4.5.tgz#fd94b1d37a635a3f8fbc5f028077fc7dc4ec747e"
   dependencies:
     app-module-path "^2.2.0"
     argly "^1.0.0"

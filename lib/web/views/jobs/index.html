@@ -5,22 +5,22 @@
 <div class="container-fluid">
   <div class="row">
     {% set nav = { active: status } %}
-    {% include "_partials/sidebar.html" %}
 
-    <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+    <main class="col-sm-12 pt-3">
       <form action='/jobs?status={{ status }}' method='POST'>
         <button type='submit' class="btn btn-danger">Remove all</button>
       </form>
 
       <div id="job-list" class="table-responsive">
         <input class="search" />
-        <table class="table table-hover table-sm">
+        <table class="table table-hover">
           <thead>
             <tr>
-              <th>JID</th>
+              <th width=100>JID</th>
+              <th width=100>Queue</th>
               <th>Task</th>
-              <th>Queue</th>
-              <th>StartedAt</th>
+              <th>Args</th>
+              <th>Started</th>
               <th>%</th>
               <th></th>
             </tr>
@@ -28,15 +28,18 @@
           <tbody class="list">
             {% for job in jobs %}
             <tr>
-              <th scope="row" class="jid">{{ job.jid }}</th>
-              <td class="task">{{ job.task }}</td>
+              <th scope="row" class="jid">
+                <a href="/jobs/{{ job.jid }}" title="{{ job.jid }}">
+                  {{ job.jid | truncate(8, true) }}
+                  </a>
+              </th>
               <td class="queue">{{ job.queue }}</td>
               <td class="task">{{ job.task }}</td>
               <td class="args" title="{{ job.args | dump(2) }}"><code>{{ job.args | dump(2) | truncate(100, true) }}</code></td>
               <td class="queue">{{ job.startedAt | date }}</td>
               <td>{{ job.progress }}</td>
-              <td>
-                <a href="/jobs/{{ job.jid }}" class="btn btn-outline-primary btn-sm">Show</a>
+              <td class="pull-right">
+                <a href="/jobs/{{ job.jid }}" class="btn btn-outline-primary btn-sm float-right">Show</a>
               </td>
             </tr>
             {% endfor %}
