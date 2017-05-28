@@ -34,22 +34,30 @@ describe('Job', () => {
     const queue = new Queue();
     const job = await queue.enqueue('BooWorker', [1, 'arg1', true]);
 
-    expect(job.queue).to.be.equal('blezer:queues:default');
+    expect(job.queue).to.be.equal('default');
     expect(job.task).to.be.equal('BooWorker');
     expect(job.args).to.be.an('array');
   });
 
-  it('enque a job using a helper', async () => {
+  it('enque a job using a helper with specific queue', async () => {
     const job = await enqueue('BooWorker', [1, 'arg1', true], { name: 'high' });
 
-    expect(job.queue).to.be.equal('blezer:queues:high');
+    expect(job.queue).to.be.equal('high');
+    expect(job.task).to.be.equal('BooWorker');
+    expect(job.args).to.be.an('array');
+  });
+
+  it('enque a job using a helper with default queue', async () => {
+    const job = await enqueue('BooWorker', [1, 'arg1', true]);
+
+    expect(job.queue).to.be.equal('default');
     expect(job.task).to.be.equal('BooWorker');
     expect(job.args).to.be.an('array');
   });
 
   it('enqueue a new job ', async () => {
     const job = await new Job('default', 'BooWorker', [1, 'arg1', true]);
-    await timeout(1);
+    await timeout(10);
     job.emit('enqueued');
 
     expect(job.createdAt).to.exist;
