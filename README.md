@@ -93,6 +93,16 @@ Blezer comes with a built-in web UI that allows to quickly see the status of all
 
 ![Blezer UI](https://github.com/zaiste/blezer/raw/master/blezer-ui.jpg)
 
+### Environments
+
+You can distinguish visually the UI between `staging` and `production` environments by specifying `BLEZER_ENV` variable accordingly. You can set this variable when launching Blezer with `blezer start` e.g.
+
+```
+BLEZER_ENV=production blezer start
+```
+
+It will add a small color bar at the top to help you identify at a glance which UI instance you are currently using.
+
 ---
 
 ## Concepts
