@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% set nav = { active: 'tasks' } %}
 {% include "_partials/nav.html" %}
 <div class="container-fluid">
   <div class="row">
-    {% set nav = { active: 'tasks' } %}
-
     <main class="col-sm-12 pt-3">
       <div id="job-list" class="table-responsive">
         <input class="search" />
