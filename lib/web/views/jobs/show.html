@@ -1,11 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-
+{% set nav = { active: 'jobs' } %}
 {% include "_partials/nav.html" %}
 <div class="container">
   <div class="row">
-    {% set nav = { active: 'jobs' } %}
-
     <main class="col-sm-12 pt-3">
       <h2>Job: <code>{{ jid }}</code></h2>
       <div class='progress progress-striped'>
@@ -29,8 +27,14 @@
           </tr>
           <tr>
             <td>Queue</td>
-            <td><pre>{{ job.queue }}</pre></td>
+            <td><pre>{{ job.queue | name }}</pre></td>
           </tr>
+          {% if finishedAt %}
+            <tr>
+              <td>Duration</td>
+              <td><pre>{{ [job.finishedAt, job.startedAt] | duration }}</pre></td>
+            </tr>
+          {% endif %}
           <tr>
             <td>Args</td>
             <td><pre>{{ args }}</pre></td>
