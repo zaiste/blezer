@@ -31,10 +31,10 @@
                   {{ job.jid | truncate(8, true) }}
                   </a>
               </th>
-              <td class="queue">{{ job.queue }}</td>
+              <td class="queue">{{ job.queue | name }}</td>
               <td class="task">{{ job.task }}</td>
               <td class="args" title="{{ job.args | dump(2) }}"><code>{{ job.args | dump(2) | truncate(100, true) }}</code></td>
-              <td class="queue">{{ job.startedAt }}</td>
+              <td class="queue">{{ job.startedAt | date }}</td>
               <td>{{ job.progress }}</td>
               <td class="pull-right">
                 <div class="btn-group" role="group">
