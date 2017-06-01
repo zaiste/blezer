@@ -29,7 +29,7 @@
             <td>Queue</td>
             <td><pre>{{ job.queue | name }}</pre></td>
           </tr>
-          {% if finishedAt %}
+          {% if job.finishedAt %}
             <tr>
               <td>Duration</td>
               <td><pre>{{ [job.finishedAt, job.startedAt] | duration }}</pre></td>
