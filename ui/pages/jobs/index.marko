@@ -1,0 +1,62 @@
+static {
+  function truncate(value, length) {
+    return value.substring(0, length);
+  }
+}
+
+<include('../layout.marko')>
+  <@body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <main class="col-sm-12 pt-3">
+        <form action='/jobs?status=${input.status}' method='POST'>
+          <button type='submit' class="btn btn-danger">Remove all</button>
+        </form>
+
+        <div id="job-list" class="table-responsive">
+          <input class="search" />
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th width=100>JID</th>
+                <th width=100>Queue</th>
+                <th>Task</th>
+                <th>Args</th>
+                <th>Started</th>
+                <th>%</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody class="list">
+              <tr for(job in input.jobs)>
+                <th scope="row" class="jid">
+                  <a href="/jobs/${job.jid}" title="${job.jid}">${truncate(job.jid, 8)}</a>
+                </th>
+                <td class="queue">${job.queue}</td>
+                <td class="task">${job.task}</td>
+                <td class="args" title="${job.args}"><code>${JSON.stringify(job.args, 2)}</code></td>
+                <td class="queue">${job.startedAt}</td>
+                <td>${job.progress}</td>
+                <td class="pull-right">
+                  <div class="btn-group" role="group">
+                    <a href="/jobs/${job.jid}" class="btn btn-outline-primary btn-sm">Show</a>
+                    <form
+                      action='/jobs/${job.jid}/delete?status=${input.status}'
+                      onsubmit="return confirm('Are you sure you want to delete this job?');"
+                      method='POST'
+                      class="d-inline">
+                      <button type='submit' class="btn btn-sm btn-danger">Remove</button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  </@body>
+</include>

@@ -1,3 +1,7 @@
+ui/static/*
+
+*.marko.js
+
 # Logs
 logs
 *.log

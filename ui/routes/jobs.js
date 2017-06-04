@@ -13,9 +13,9 @@
 
 const cluster = require('cluster');
 const { redirect } = require('huncwot/response');
+const { page } = require('huncwot/view');
 
-const Job = require('../../job');
-const { render } = require('../util.js');
+const Job = require('../../lib/job');
 
 async function show(request) {
   const { jid } = request.params;
@@ -25,7 +25,7 @@ async function show(request) {
   let progress = job.progress || 100;
   let args = JSON.stringify(job.args, null, 4);
 
-  return render('jobs/show.html', { jid, job, args, logs, progress });
+  return page('jobs/show', { jid, job, args, logs, progress });
 }
 
 async function index(request) {
@@ -46,7 +46,7 @@ async function index(request) {
   default:
   }
 
-  return render('jobs/index.html', { jobs, status });
+  return page('jobs/index', { jobs, status });
 }
 
 async function remove(request) {

@@ -11,7 +11,7 @@ const { enqueue } = require('../');
 let server;
 
 before(() => {
-  server = require('../lib/web/server')(3000);
+  server = require('../ui/server')(3000);
 });
 
 

@@ -14,8 +14,8 @@
 const Promise = require('bluebird');
 const { ok, created } = require('huncwot/response');
 
-const Queue = require('../queue');
-const Stats = require('../stats');
+const Queue = require('../lib/queue');
+const Stats = require('../lib/stats');
 
 async function all(request) {
   const queues = await Queue.all;
@@ -59,6 +59,7 @@ async function stats(request) {
   ]).spread((queues, processed, failed, enqueued) => ({
     processed,
     failed,
+    queues,
     enqueued,
   }));
 

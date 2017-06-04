@@ -9,7 +9,9 @@
   "keywords": [
     "blezer",
     "nodejs",
+    "sidekiq",
     "queue",
+    "resque",
     "job",
     "worker",
     "task",
@@ -30,13 +32,13 @@
     "url": "https://github.com/zaiste/blezer"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "bluebird": "^3.5.0",
     "chalk": "^1.1.3",
     "chokidar": "^1.7.0",
     "figlet": "^1.2.0",
     "fs-extra": "^3.0.1",
     "huncwot": "^0.9.0",
-    "nunjucks": "^3.0.1",
     "pkginfo": "^0.4.0",
     "redis": "^2.7.1",
     "require-all": "^2.2.0",

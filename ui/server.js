@@ -37,7 +37,7 @@ function server(port) {
   app.get('/jobs/:jid', jobs.show);
   app.post('/jobs/:jid/delete', jobs.stop);
   app.post('/jobs', jobs.remove);
-  app.get('/tasks', tasks.index);
+  // app.get('/tasks', tasks.index);
 
   return app.listen(port);
 }

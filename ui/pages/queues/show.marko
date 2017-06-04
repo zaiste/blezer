@@ -1,0 +1,42 @@
+<include('../layout.marko')>
+  <@body>
+  <div class="container-fluid">
+    <div class="row">
+      <main class="col-sm-12 pt-3">
+        <h2> Queue: ${input.id} </h2>
+        <div id="job-list" class="table-responsive">
+          <input class="search" />
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>JID</th>
+                <th>Worker</th>
+                <th>Queue</th>
+                <th>Progress</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody class="list">
+              <tr for(job in input.jobs)>
+                <th scope="row" class="jid">${job.jid}</th>
+                <td>${job.task}</td>
+                <td>${job.queue}</td>
+                <td>
+                  <div class='progress progress-striped'>
+                    <div class="progress-bar progress-bar-warning" role="progressbar" style="width: ${job.progress}%;">
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <a href="/jobs/${job.jid}" class="btn btn-outline-primary btn-sm">Show</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  </@body>
+</include>

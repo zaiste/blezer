@@ -12,24 +12,23 @@
 // limitations under the License.
 
 const { redirect } = require('huncwot/response');
+const { page } = require('huncwot/view');
 
-const Stats = require('../../stats');
-const Queue = require('../../queue');
-const Job = require('../../job');
-
-const { render } = require('../util.js');
+const Stats = require('../../lib/stats');
+const Queue = require('../../lib/queue');
+const Job = require('../../lib/job');
 
 async function index(request) {
   let queues = await Stats.queues();
 
-  return render('queues/index.html', { queues });
+  return page('queues/index', { queues });
 }
 
 async function show(request) {
   const { id } = request.params;
   let jobs = await Job.forQueue(id);
 
-  return render('queues/show.html', { jobs, id });
+  return page('queues/show', { jobs, id });
 }
 
 async function remove(request) {

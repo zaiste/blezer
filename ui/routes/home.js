@@ -9,16 +9,23 @@
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
-// limitations under the License.const Promise = require('bluebird');
+// limitations under the License.
 
+const Stats = require('../../lib/stats');
+const env = process.env.BLEZER_ENV;
 
-const { render } = require('../util.js');
-const { tasks } = require('../../load.js');
+const { page } = require('huncwot/view');
 
-async function index(request) {
-  return render('tasks/index.html', { tasks });
+async function dashboard(ctx, next) {
+  const stats = await Promise.all([
+    Stats.processed,
+    Stats.failed,
+    Stats.active,
+    Stats.enqueued]);
+
+  return page('index', { stats, env });
 }
 
 module.exports = {
-  index,
+  dashboard,
 };

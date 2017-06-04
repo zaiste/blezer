@@ -14,11 +14,11 @@
 const queues = require('./queues');
 const jobs = require('./jobs');
 const home = require('./home');
-const tasks = require('./tasks');
+// const tasks = require('./tasks');
 
 module.exports = {
   queues,
   jobs,
   home,
-  tasks,
+  // tasks,
 };
