@@ -45,7 +45,7 @@ static {
                 <td class="queue">${job.queue}</td>
                 <td class="task">${job.task}</td>
                 <td class="title">${job.title}</td>
-                <td class="queue">${job.startedAt}</td>
+                <td class="queue">${relative(job.startedAt)}</td>
                 <td>${job.progress}</td>
                 <td class="pull-right">
                   <div class="btn-group" role="group">
