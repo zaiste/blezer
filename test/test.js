@@ -23,7 +23,7 @@ async function timeout(ms) {
 
 describe('Job', () => {
   it('create a job with a specific task', async () => {
-    const job = await new Job('default', 'BooWorker Title', [1, 'arg1', true], 'BooWorker');
+    const job = await new Job('default', 'BooWorker', [1, 'arg1', true], 'BooWorker Title');
 
     expect(job.queue).to.be.equal('default');
     expect(job.task).to.be.equal('BooWorker');
