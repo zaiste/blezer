@@ -1,3 +1,16 @@
+import Sugar from 'sugar-date';
+
+static {
+  Sugar.Date.extend();
+  Sugar.Number.extend();
+
+  function duration(fromDate, toDate) {
+    const finished = Date.create(parseInt(fromDate));
+    const started = Date.create(parseInt(toDate));
+    return (finished - started).duration()
+  }
+}
+
 <include('../layout.marko')>
   <@body>
 
@@ -30,7 +43,7 @@
             </tr>
             <tr if(input.job.finishedAt)>
               <td>Duration</td>
-              <td><pre>${[input.job.finishedAt, input.job.startedAt]}</pre></td>
+              <td><pre>${duration(input.job.finishedAt, input.job.startedAt)}</pre></td>
             </tr>
             <tr>
               <td>Args</td>

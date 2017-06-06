@@ -1,6 +1,15 @@
+import Sugar from 'sugar-date';
+
 static {
+  Sugar.Date.extend();
+  Sugar.Number.extend();
+
   function truncate(value, length) {
     return value.substring(0, length);
+  }
+
+  function relative(date) {
+    return Date.create(parseInt(date)).relative()
   }
 }
 
@@ -36,7 +45,7 @@ static {
                 <td class="queue">${job.queue}</td>
                 <td class="task">${job.task}</td>
                 <td class="args" title="${job.args}"><code>${JSON.stringify(job.args, 2)}</code></td>
-                <td class="queue">${job.startedAt}</td>
+                <td class="queue">${relative(job.startedAt)}</td>
                 <td>${job.progress}</td>
                 <td class="pull-right">
                   <div class="btn-group" role="group">
