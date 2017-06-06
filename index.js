@@ -14,9 +14,9 @@
 const Task = require('./lib/task');
 const Queue = require('./lib/queue');
 
-async function enqueue(task, args, { name = 'default' } = {}) {
+async function enqueue(task, args, { name = 'default', title = undefined } = {}) {
   const queue = new Queue(name);
-  const job = await queue.enqueue(task, args, {});
+  const job = await queue.enqueue(task, args, title, {});
 
   return job;
 }

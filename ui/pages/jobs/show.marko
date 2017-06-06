@@ -41,6 +41,10 @@ static {
               <td>Queue</td>
               <td><pre>${input.job.queue}</pre></td>
             </tr>
+            <tr>
+              <td>Title</td>
+              <td><pre>${input.job.title}</pre></td>
+            </tr>
             <tr if(input.job.finishedAt)>
               <td>Duration</td>
               <td><pre>${duration(input.job.finishedAt, input.job.startedAt)}</pre></td>
