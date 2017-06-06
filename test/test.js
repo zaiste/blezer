@@ -23,19 +23,30 @@ async function timeout(ms) {
 
 describe('Job', () => {
   it('create a job with a specific task', async () => {
+    const job = await new Job('default', 'BooWorker', [1, 'arg1', true], 'BooWorker Title');
+
+    expect(job.queue).to.be.equal('default');
+    expect(job.task).to.be.equal('BooWorker');
+    expect(job.title).to.be.equal('BooWorker Title');
+    expect(job.args).to.be.an('array');
+  });
+
+  it('create a job with a specific task, without title', async () => {
     const job = await new Job('default', 'BooWorker', [1, 'arg1', true]);
 
     expect(job.queue).to.be.equal('default');
     expect(job.task).to.be.equal('BooWorker');
+    expect(job.title).to.be.equal(undefined);
     expect(job.args).to.be.an('array');
   });
 
   it('enque a job via Queue', async () => {
     const queue = new Queue();
-    const job = await queue.enqueue('BooWorker', [1, 'arg1', true]);
+    const job = await queue.enqueue('BooWorker', [1, 'arg1', true], 'BooWorker Title');
 
     expect(job.queue).to.be.equal('default');
     expect(job.task).to.be.equal('BooWorker');
+    expect(job.title).to.be.equal('BooWorker Title');
     expect(job.args).to.be.an('array');
   });
 

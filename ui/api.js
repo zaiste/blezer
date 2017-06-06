@@ -41,11 +41,11 @@ async function size(request) {
 }
 
 async function enqueue(request) {
-  let { name, task, args } = request.params;
+  let { name, task, args, title } = request.params;
   args = JSON.parse(args);
 
   const queue = new Queue(name);
-  const job = await queue.enqueue(task, args);
+  const job = await queue.enqueue(task, args, title);
 
   return created(job, { 'location': `/jobs/${job.jid}` });
 }

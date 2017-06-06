@@ -31,7 +31,7 @@ static {
                 <th width=100>JID</th>
                 <th width=100>Queue</th>
                 <th>Task</th>
-                <th>Args</th>
+                <th>Title</th>
                 <th>Started</th>
                 <th>%</th>
                 <th></th>
@@ -44,7 +44,7 @@ static {
                 </th>
                 <td class="queue">${job.queue}</td>
                 <td class="task">${job.task}</td>
-                <td class="args" title="${job.args}"><code>${JSON.stringify(job.args, 2)}</code></td>
+                <td class="title">${job.title}</td>
                 <td class="queue">${relative(job.startedAt)}</td>
                 <td>${job.progress}</td>
                 <td class="pull-right">
