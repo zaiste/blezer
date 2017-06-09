@@ -73,9 +73,19 @@ async function stop(request) {
   return redirect(`/jobs?status=${status}`);
 }
 
+async function retry(request) {
+  const { status, jid } = request.params;
+
+  const job = await Job.find(jid);
+  await Job.retry(job.queue, jid);
+
+  return redirect(`/jobs?status=${status}`);
+}
+
 module.exports = {
   index,
   show,
   remove,
   stop,
+  retry,
 };
