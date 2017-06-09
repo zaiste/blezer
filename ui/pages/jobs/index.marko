@@ -51,6 +51,14 @@ static {
                   <div class="btn-group" role="group">
                     <a href="/jobs/${job.jid}" class="btn btn-outline-primary btn-sm">Show</a>
                     <form
+                      if(input.status=='failed')
+                      action='/jobs/${job.jid}/retry?status=${input.status}'
+                      onsubmit="return confirm('Are you sure you want to retry this job?');"
+                      method='POST'
+                      class="d-inline">
+                      <button type='submit' class="btn btn-sm btn-primary">Retry</button>
+                    </form>
+                    <form
                       action='/jobs/${job.jid}/delete?status=${input.status}'
                       onsubmit="return confirm('Are you sure you want to delete this job?');"
                       method='POST'
