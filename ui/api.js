@@ -52,14 +52,14 @@ async function enqueue(request) {
 
 async function stats(request) {
   const stats = await Promise.all([
-    Stats.queues,
+    Stats.active,
     Stats.failed,
     Stats.processed,
     Stats.enqueued,
-  ]).spread((queues, processed, failed, enqueued) => ({
+  ]).spread((active, processed, failed, enqueued) => ({
     processed,
     failed,
-    queues,
+    active,
     enqueued,
   }));
 
