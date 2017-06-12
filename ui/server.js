@@ -22,6 +22,7 @@ function server(port) {
 
   // API
 
+  app.get('/api/jobs/:status', api.jobs);
   app.get('/api/queues', api.all);
   app.post('/api/queues/:name', api.enqueue);
   app.get('/api/stats', api.stats);

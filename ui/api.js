@@ -15,6 +15,7 @@ const Promise = require('bluebird');
 const { ok, created } = require('huncwot/response');
 
 const Queue = require('../lib/queue');
+const Job = require('../lib/job');
 const Stats = require('../lib/stats');
 
 async function all(request) {
@@ -23,11 +24,21 @@ async function all(request) {
 }
 
 async function jobs(request) {
-  const { name } = request.params;
-  const queue = new Queue(name);
+  const { status } = request.params;
+  let jobs = [];
 
-  let jobs = await queue.jobs;
-  jobs = jobs.map(JSON.parse);
+  switch (status) {
+  case 'active':
+    jobs = await Job.active();
+    break;
+  case 'failed':
+    jobs = await Job.failed();
+    break;
+  case 'processed':
+    jobs = await Job.processed();
+    break;
+  default:
+  }
 
   return ok(jobs);
 }
@@ -52,14 +63,14 @@ async function enqueue(request) {
 
 async function stats(request) {
   const stats = await Promise.all([
-    Stats.queues,
+    Stats.active,
     Stats.failed,
     Stats.processed,
     Stats.enqueued,
-  ]).spread((queues, processed, failed, enqueued) => ({
+  ]).spread((active, processed, failed, enqueued) => ({
     processed,
     failed,
-    queues,
+    active,
     enqueued,
   }));
 
