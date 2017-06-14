@@ -36,7 +36,7 @@ describe('Job', () => {
 
     expect(job.queue).to.be.equal('default');
     expect(job.task).to.be.equal('BooWorker');
-    expect(job.title).to.be.equal(undefined);
+    expect(job.title).to.be.empty;
     expect(job.args).to.be.an('array');
   });
 
