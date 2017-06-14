@@ -52,6 +52,21 @@ async function remove(request) {
   return ok(job);
 }
 
+async function removeJobs(request) {
+  const { status } = request.params;
+
+  console.log(status);
+
+  if (!/(^active$)|(^processed$)|(^failed$)/.test(status)) {
+    return ok(false);
+  }
+
+  const job = await Job.empty(status);
+
+  return ok();
+}
+
+
 async function retry(request) {
   const { jid } = request.params;
 
@@ -124,4 +139,4 @@ async function search(request) {
   return '';
 }
 
-module.exports = { all, size, enqueue, stats, search, jobs, job, remove, retry};
+module.exports = { all, size, enqueue, stats, search, jobs, job, remove, retry, removeJobs};

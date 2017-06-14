@@ -22,6 +22,7 @@ function server(port) {
 
   // API
   app.get('/api/jobs', api.jobs);
+  app.delete('/api/jobs/:status', api.removeJobs);
   app.get('/api/jobs/:jid', api.job);
   app.delete('/api/jobs/:jid', api.remove);
   app.post('/api/jobs/:jid/retry', api.retry);
