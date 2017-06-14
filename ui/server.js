@@ -21,8 +21,11 @@ function server(port) {
   const app = new Huncwot();
 
   // API
-
-  app.get('/api/jobs/:status', api.jobs);
+  app.get('/api/jobs', api.jobs);
+  app.delete('/api/jobs/:status', api.removeJobs);
+  app.get('/api/jobs/:jid', api.job);
+  app.delete('/api/jobs/:jid', api.remove);
+  app.post('/api/jobs/:jid/retry', api.retry);
   app.get('/api/queues', api.all);
   app.post('/api/queues/:name', api.enqueue);
   app.get('/api/stats', api.stats);

@@ -13,6 +13,7 @@
 
 const Promise = require('bluebird');
 const { ok, created } = require('huncwot/response');
+const cluster = require('cluster');
 
 const Queue = require('../lib/queue');
 const Job = require('../lib/job');
@@ -21,6 +22,61 @@ const Stats = require('../lib/stats');
 async function all(request) {
   const queues = await Queue.all;
   return ok(queues);
+}
+
+async function job(request) {
+  const { jid } = request.params;
+
+  let logs = await Job.logs(jid);
+  let job = await Job.find(jid);
+  let progress = job.progress || 100;
+  let args = JSON.stringify(job.args, null, 4);
+
+  return ok({ jid, job, args, logs, progress });
+}
+
+async function remove(request) {
+  const { jid } = request.params;
+
+  const job = await Job.find(jid);
+
+  try {
+    await Job.remove(jid);
+    process.kill(job.pid);
+  } catch (error) {
+    console.error(error);
+  }
+
+  cluster.fork();
+
+  return ok(job);
+}
+
+async function removeJobs(request) {
+  const { status } = request.params;
+
+  if (!/(^active$)|(^processed$)|(^failed$)/.test(status)) {
+    return ok(false);
+  }
+
+  const job = await Job.empty(status);
+
+  return ok();
+}
+
+
+async function retry(request) {
+  const { jid } = request.params;
+
+  const job = await Job.find(jid);
+
+  try {
+    await Job.retry(job.queue, jid);
+  } catch (error) {
+    console.log(error);
+  }
+
+  return ok(job);
 }
 
 async function jobs(request) {
@@ -81,4 +137,4 @@ async function search(request) {
   return '';
 }
 
-module.exports = { all, size, enqueue, stats, search, jobs };
+module.exports = { all, size, enqueue, stats, search, jobs, job, remove, retry, removeJobs};
