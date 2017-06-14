@@ -55,8 +55,6 @@ async function remove(request) {
 async function removeJobs(request) {
   const { status } = request.params;
 
-  console.log(status);
-
   if (!/(^active$)|(^processed$)|(^failed$)/.test(status)) {
     return ok(false);
   }
