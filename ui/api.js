@@ -44,7 +44,7 @@ async function remove(request) {
     await Job.remove(jid);
     process.kill(job.pid);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 
   cluster.fork();
