@@ -13,6 +13,7 @@
 
 const Task = require('./lib/task');
 const Queue = require('./lib/queue');
+const Job = require('./lib/job');
 
 async function enqueue(task, args, { name = 'default', title } = {}) {
   const queue = new Queue(name);
@@ -21,4 +22,4 @@ async function enqueue(task, args, { name = 'default', title } = {}) {
   return job;
 }
 
-module.exports = { Task, Queue, enqueue };
+module.exports = { Task, Queue, Job, enqueue };
