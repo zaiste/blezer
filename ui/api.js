@@ -47,10 +47,7 @@ async function remove(request) {
     console.error(error);
   }
 
-  let cwd = process.cwd();
-  process.chdir(process.env.PWD);
-  cluster.fork();
-  process.chdir(cwd);
+  revertPWDtoCWD(cluster.fork);
 
   return ok(job);
 }
