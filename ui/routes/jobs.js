@@ -68,7 +68,10 @@ async function stop(request) {
     console.log(error);
   }
 
+  let cwd = process.cwd();
+  process.chdir(process.env.PWD);
   cluster.fork();
+  process.chdir(cwd);
 
   return redirect(`/jobs?status=${status}`);
 }
