@@ -18,6 +18,7 @@ const cluster = require('cluster');
 const Queue = require('../lib/queue');
 const Job = require('../lib/job');
 const Stats = require('../lib/stats');
+const { revertCWD } = require('./util');
 
 async function all(request) {
   const queues = await Queue.all;
@@ -47,10 +48,7 @@ async function remove(request) {
     console.error(error);
   }
 
-  let cwd = process.cwd();
-  process.chdir(process.env.PWD);
-  cluster.fork();
-  process.chdir(cwd);
+  revertCWD(cluster.fork);
 
   return ok(job);
 }
