@@ -32,13 +32,13 @@
     "url": "https://github.com/zaiste/blezer"
   },
   "dependencies": {
-    "axios": "^0.17.0",
+    "axios": "^0.17.1",
     "bluebird": "^3.5.1",
     "chalk": "^2.3.0",
     "chokidar": "^1.7.0",
     "figlet": "^1.2.0",
     "fs-extra": "^4.0.2",
-    "huncwot": "^0.16.0",
+    "huncwot": "^0.17.0",
     "nunjucks": "^3.0.1",
     "pkginfo": "^0.4.1",
     "redis": "^2.8.0",
@@ -53,7 +53,7 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
-    "eslint": "^4.9.0",
+    "eslint": "^4.11.0",
     "mocha": "^4.0.1",
     "nodemon": "^1.12.1"
   },
