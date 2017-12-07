@@ -64,6 +64,8 @@ async function stop(request) {
   const job = await Job.find(jid);
   try {
     await Job.remove(jid);
+    // This method will throw an error if the target pid does not exist.
+    process.kill(job.pid, 0);
     process.kill(job.pid);
   } catch (error) {
     console.log(error);
