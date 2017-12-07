@@ -39,11 +39,8 @@ async function job(request) {
 async function remove(request) {
   const { jid } = request.params;
 
-  const job = await Job.find(jid);
-
   try {
     await Job.remove(jid);
-    process.kill(job.pid);
   } catch (error) {
     console.error(error);
   }
