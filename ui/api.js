@@ -45,8 +45,6 @@ async function remove(request) {
     console.error(error);
   }
 
-  revertCWD(cluster.fork);
-
   return ok(job);
 }
 

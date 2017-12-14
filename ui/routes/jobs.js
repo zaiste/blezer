@@ -16,7 +16,6 @@ const { redirect } = require('huncwot/response');
 const { page } = require('huncwot/view');
 
 const Job = require('../../lib/job');
-const { revertCWD } = require('../util');
 
 async function show(request) {
   const { jid } = request.params;
@@ -67,7 +66,6 @@ async function stop(request) {
     console.log(error);
   }
 
-  revertCWD(cluster.fork);
 
   return redirect(`/jobs?status=${status}`);
 }
