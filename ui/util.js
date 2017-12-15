@@ -24,12 +24,4 @@ function render(view, bindings) {
   return html(nunjucks.render(view, bindings));
 }
 
-function revertCWD(cb) {
-  let cwd = process.cwd();
-  process.chdir(process.env.PWD);
-  let res = cb();
-  process.chdir(cwd);
-  return res;
-}
-
-module.exports = { render, revertCWD };
+module.exports = { render };

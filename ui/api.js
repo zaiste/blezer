@@ -18,7 +18,6 @@ const cluster = require('cluster');
 const Queue = require('../lib/queue');
 const Job = require('../lib/job');
 const Stats = require('../lib/stats');
-const { revertCWD } = require('./util');
 
 async function all(request) {
   const queues = await Queue.all;
