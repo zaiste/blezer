@@ -44,7 +44,7 @@ async function remove(request) {
     console.error(error);
   }
 
-  return ok(job);
+  return ok(jid);
 }
 
 async function removeJobs(request) {
